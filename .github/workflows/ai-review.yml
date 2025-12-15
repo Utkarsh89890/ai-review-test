@@ -25,11 +25,11 @@ jobs:
   
       - name: Check OpenAI key length
         run: |
-          KEY="${OPENAI_API_KEY}"
+          KEY="${OPENAI_API_KEY_2}"
           LEN=${#KEY}
           echo "Key length = $LEN"
         env:
-          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          OPENAI_API_KEY_2: ${{ secrets.OPENAI_API_KEY_2 }}
 
       - name: Run AI Review
         env:
