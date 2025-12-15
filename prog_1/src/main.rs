@@ -27,6 +27,7 @@ fn main() {
     // Simple function call
     let result = square(7);
     println!("Square of 7 is {}", result);
+    //comment
 }
 
 fn square(n: i32) -> i32 {
