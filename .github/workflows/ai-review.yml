@@ -49,7 +49,7 @@ jobs:
           VCS__PIPELINE__REPO: "ai-review-test"
           VCS__PIPELINE__PULL_NUMBER: ${{ github.event.pull_request.number }}
           VCS__HTTP_CLIENT__API_URL: "https://api.github.com"
-          VCS__HTTP_CLIENT__API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          VCS__HTTP_CLIENT__API_TOKEN: ${{ secrets.GH_PAT }}
 
         run: |
           ai-review run-inline
