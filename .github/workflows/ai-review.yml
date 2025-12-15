@@ -1,35 +1,32 @@
-name: AI Review
-
 on:
   pull_request_target:
     types: [opened, synchronize, reopened]
 
 jobs:
-  ai-review:
+  ai_review:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
-      pull-requests: write
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout PR code
+        uses: actions/checkout@v4
         with:
-          fetch-depth: 0   # IMPORTANT FIX
+          ref: ${{ github.event.pull_request.head.sha }}
+          fetch-depth: 0
 
-      - uses: actions/setup-python@v5
+      - name: Setup Python
+        uses: actions/setup-python@v5
         with:
-          python-version: "3.x"
+          python-version: "3.12"
 
-      - name: Install AI Review
+      - name: Install AI review
         run: pip install --no-cache-dir xai-review==0.39.0
-  
-      - name: Check OpenAI key length
+
+      - name: Debug key
         run: |
-          KEY="${OPENAI_API_KEY_2}"
-          LEN=${#KEY}
-          echo "Key length = $LEN"
+          KEY="${OPENAI_API_KEY}"
+          echo "Length: ${#KEY}"
         env:
-          OPENAI_API_KEY_2: ${{ secrets.OPENAI_API_KEY_2 }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
 
       - name: Run AI Review
         env:
