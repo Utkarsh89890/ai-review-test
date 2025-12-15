@@ -22,6 +22,14 @@ jobs:
 
       - name: Install AI Review
         run: pip install --no-cache-dir xai-review==0.39.0
+  
+      - name: Check OpenAI key length
+        run: |
+          KEY="${OPENAI_API_KEY}"
+          LEN=${#KEY}
+          echo "Key length = $LEN"
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
 
       - name: Run AI Review
         env:
