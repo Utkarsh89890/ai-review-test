@@ -38,4 +38,6 @@ jobs:
           VCS__HTTP_CLIENT__API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
         run: |
+          ai-review run-inline
+          ai-review run-context
           ai-review run-summary
