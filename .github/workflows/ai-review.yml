@@ -1,0 +1,29 @@
+name: AI Review
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+  workflow_dispatch:
+
+jobs:
+  ai-review:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Run AI Review
+        uses: Nikita-Filonov/ai-review@v0.39.0
+        with:
+          review-command: run-summary
+        env:
+          LLM__PROVIDER: "OPENAI"
+          LLM__META__MODEL: "gpt-4o-mini"
+          LLM__HTTP_CLIENT__API_TOKEN: ${{ secrets.OPENAI_API_KEY }}
+          VCS__PROVIDER: "GITHUB"
+          VCS__PIPELINE__OWNER: "Utkarsh89890"
+          VCS__PIPELINE__REPO: "ai-review-test"
+          VCS__HTTP_CLIENT__API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
