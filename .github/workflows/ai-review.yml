@@ -3,7 +3,6 @@ name: AI Review
 on:
   pull_request:
     types: [opened, synchronize, reopened]
-  workflow_dispatch:
 
 jobs:
   ai-review:
@@ -15,15 +14,28 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Run AI Review
-        uses: Nikita-Filonov/ai-review@v0.39.0
+      - uses: actions/setup-python@v5
         with:
-          review-command: run-summary
+          python-version: "3.x"
+
+      - name: Install AI Review
+        run: pip install --no-cache-dir xai-review==0.39.0
+
+      - name: Run AI Review
         env:
+          # LLM CONFIG
           LLM__PROVIDER: "OPENAI"
           LLM__META__MODEL: "gpt-4o-mini"
           LLM__HTTP_CLIENT__API_TOKEN: ${{ secrets.OPENAI_API_KEY }}
+          LLM__HTTP_CLIENT__API_URL: "https://api.openai.com/v1"
+
+          # GITHUB CONFIG
           VCS__PROVIDER: "GITHUB"
           VCS__PIPELINE__OWNER: "Utkarsh89890"
           VCS__PIPELINE__REPO: "ai-review-test"
+          VCS__PIPELINE__PULL_NUMBER: ${{ github.event.pull_request.number }}
+          VCS__HTTP_CLIENT__API_URL: "https://api.github.com"
           VCS__HTTP_CLIENT__API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+        run: |
+          ai-review run-summary
