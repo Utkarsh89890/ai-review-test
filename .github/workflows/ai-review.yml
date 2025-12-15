@@ -30,15 +30,15 @@ jobs:
 
       - name: Run AI Review
         env:
-          # Use OpenRouter as provider
-          LLM_PROVIDER: "OPENROUTER"
+          # Use OpenRouter as provider (note the double underscores)
+          LLM__PROVIDER: "OPENROUTER"
 
           # Select free DeepSeek model
-          LLM_META_MODEL: "deepseek-chat"
+          LLM__META__MODEL: "deepseek-chat"
 
           # OpenRouter auth
-          LLM_HTTP_CLIENT_API_TOKEN: ${{ secrets.OPENROUTER_API_KEY }}
-          LLM_HTTP_CLIENT_API_URL: "https://openrouter.ai/api/v1"
+          LLM__HTTP_CLIENT__API_TOKEN: ${{ secrets.OPENROUTER_API_KEY }}
+          LLM__HTTP_CLIENT__API_URL: "https://openrouter.ai/api/v1"
 
           VCS__PROVIDER: "GITHUB"
           VCS__PIPELINE__OWNER: "Utkarsh89890"
