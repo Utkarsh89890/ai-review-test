@@ -33,15 +33,15 @@ jobs:
           # Use OpenRouter as provider (note the double underscores)
           LLM__PROVIDER: "OPENROUTER"
 
-          # Select free DeepSeek model (use one of these)
-          # Option 1: Latest DeepSeek V3.1 (recommended)
-          LLM__META__MODEL: "deepseek/deepseek-chat-v3.1:free"
+          # Select free model (use one of these)
+          # Option 1: DeepSeek R1 Distill Llama 70B (recommended for code review)
+          LLM__META__MODEL: "deepseek/deepseek-r1-distill-llama-70b:free"
           
-          # Option 2: DeepSeek V3-0324
-          # LLM__META__MODEL: "deepseek/deepseek-chat-v3-0324:free"
-          
-          # Option 3: DeepSeek R1 (reasoning model)
+          # Option 2: DeepSeek R1 (full reasoning model)
           # LLM__META__MODEL: "deepseek/deepseek-r1:free"
+          
+          # Option 3: Qwen QwQ 32B (alternative reasoning model)
+          # LLM__META__MODEL: "qwen/qwq-32b:free"
 
           # OpenRouter auth
           LLM__HTTP_CLIENT__API_TOKEN: ${{ secrets.OPENROUTER_API_KEY }}
