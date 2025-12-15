@@ -13,6 +13,8 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0   # IMPORTANT FIX
 
       - uses: actions/setup-python@v5
         with:
@@ -23,14 +25,11 @@ jobs:
 
       - name: Run AI Review
         env:
-          # LLM CONFIG
           LLM__PROVIDER: "OPENAI"
           LLM__META__MODEL: "gpt-4o-mini"
           LLM__HTTP_CLIENT__API_TOKEN: ${{ secrets.OPENAI_API_KEY }}
           LLM__HTTP_CLIENT__API_URL: "https://api.openai.com/v1"
 
-
-          # GITHUB CONFIG
           VCS__PROVIDER: "GITHUB"
           VCS__PIPELINE__OWNER: "Utkarsh89890"
           VCS__PIPELINE__REPO: "ai-review-test"
