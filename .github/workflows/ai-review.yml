@@ -53,4 +53,5 @@ jobs:
 
         run: |
           ai-review run-inline
+          ai-review run-context
           ai-review run-summary
