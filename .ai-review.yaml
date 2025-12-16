@@ -12,6 +12,7 @@ review:
     - Add Rust doc comments (///) for functions
     - Avoid magic numbers; use constants
     - Comments should explain WHY, not WHAT
+    - Start at least one comment with the phrase: "STYLE CHECK:"
 
   context_prompt: |
     Perform a holistic review across all changed files.
