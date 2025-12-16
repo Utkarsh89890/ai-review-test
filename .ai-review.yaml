@@ -5,6 +5,10 @@ review:
     - Add Rust doc comments (///) for functions
     - Avoid magic numbers; use constants
     - Comments should explain WHY, not WHAT
+    
+  context_prompt: |
+    Perform a holistic review across all changed files.
+    Focus on readability, idiomatic Rust, and maintainability.
 
   summary_prompt: |
     Provide a concise review summary:
