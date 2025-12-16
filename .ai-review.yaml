@@ -1,0 +1,24 @@
+llm:
+  meta:
+    model: deepseek/deepseek-chat
+
+review:
+  inline_prompt: |
+
+    Follow these coding standards:
+    - Use clear, descriptive variable names
+    - Avoid panic!, unwrap(), and expect()
+    - Prefer Result<T, E> and proper error handling
+    - Add Rust doc comments (///) for functions
+    - Avoid magic numbers; use constants
+    - Comments should explain WHY, not WHAT
+
+  context_prompt: |
+    Perform a holistic review across all changed files.
+    Focus on readability, idiomatic Rust, and maintainability.
+
+  summary_prompt: |
+    Provide a concise review summary:
+    - Key issues
+    - Good practices
+    - Suggested improvements
