@@ -52,6 +52,5 @@ jobs:
           VCS__HTTP_CLIENT__API_TOKEN: ${{ secrets.GH_PAT }}
 
         run: |
-          ai-review run-inline
           ai-review run-context
           ai-review run-summary
