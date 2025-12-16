@@ -1,21 +1,10 @@
-llm:
-  meta:
-    model: deepseek/deepseek-chat
-
 review:
   inline_prompt: |
-    Review the code normally.
-
-    Special rule:
-    - If you find ANY line in the PR code that contains a Rust line comment starting with `//`,
-      add an inline review comment on that line suggesting the comment should be removed.
-
-    - If there are NO `//` comments in the code, do NOT add any inline review comments.
-
-    Rules:
-    - Do not comment on anything else.
-    - Do not suggest code changes.
-    - Only comment on existing `//` comments.
+    Follow these coding standards:
+    - Use clear, descriptive variable names
+    - Add Rust doc comments (///) for functions
+    - Avoid magic numbers; use constants
+    - Comments should explain WHY, not WHAT
 
   context_prompt: |
     Perform a holistic review across all changed files.
