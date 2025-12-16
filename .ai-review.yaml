@@ -4,6 +4,15 @@ llm:
 
 review:
   inline_prompt: |
+    You MUST follow these rules.
+    This is mandatory, not optional.
+
+    HARD REQUIREMENTS:
+    - At least ONE inline comment MUST start EXACTLY with:
+      "STYLE CHECK:"
+
+    If no style issues exist, still add:
+    "STYLE CHECK: No violations found."
 
     Follow these coding standards:
     - Use clear, descriptive variable names
