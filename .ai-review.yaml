@@ -1,7 +1,10 @@
 review:
-  context_prompt: |
-    Perform a holistic review across all changed files.
-    Focus on readability, idiomatic Rust, and maintainability.
+  inline_prompt: |
+    Follow these coding standards also:
+    - Use clear, descriptive variable names
+    - Add Rust doc comments (///) for functions
+    - Avoid magic numbers; use constants
+    - Comments should explain WHY, not WHAT
 
   summary_prompt: |
     Provide a concise review summary:
