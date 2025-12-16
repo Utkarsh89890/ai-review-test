@@ -8,7 +8,8 @@ review:
     
   context_prompt: |
     Perform a holistic review across all changed files.
-    Focus on readability, idiomatic Rust, and maintainability.
+    Focus on readability, idiomatic Rust, maintainability,
+    AND correctness of well-known formulas or domain logic.
 
   summary_prompt: |
     Provide a concise review summary:
