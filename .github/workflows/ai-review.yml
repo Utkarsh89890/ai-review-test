@@ -41,7 +41,7 @@ jobs:
 
           # Gemini auth
           LLM__HTTP_CLIENT__API_TOKEN: ${{ secrets.GEMINI_API_KEY }}
-          LLM__HTTP_CLIENT__API_URL: "https://generativelanguage.googleapis.com/v1"
+          LLM__HTTP_CLIENT__API_URL: "https://generativelanguage.googleapis.com"
 
           # GitHub config
           VCS__PROVIDER: "GITHUB"
