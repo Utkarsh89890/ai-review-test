@@ -23,27 +23,28 @@ jobs:
 
       - name: Debug key
         run: |
-          echo "Key length: ${#OPENROUTER_API_KEY}"
+          echo "Key length: ${#GEMINI_API_KEY}"
         env:
-          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
 
       - name: Run AI Review
         env:
-          # Use OpenRouter
-          LLM__PROVIDER: "OPENROUTER"
+          # LLM CONFIG (Gemini)
+          LLM__PROVIDER: "GEMINI"
 
-          # WORKING FREE MODELS:
-          # DeepSeek Chat (default)
-          LLM__META__MODEL: "deepseek/deepseek-chat"
+          # Recommended Gemini models
+          # Best quality:
+          # LLM__META__MODEL: "gemini-1.5-pro"
 
-          # Alternative: DeepSeek Coder (better for Rust)
-          # LLM__META__MODEL: "deepseek/deepseek-coder"
+          # Faster & cheaper alternative:
+          LLM__META__MODEL: "gemini-1.5-flash"
 
-          # OpenRouter auth
-          LLM__HTTP_CLIENT__API_TOKEN: ${{ secrets.OPENROUTER_API_KEY }}
-          LLM__HTTP_CLIENT__API_URL: "https://openrouter.ai/api/v1"
+          # Gemini auth
+          LLM__HTTP_CLIENT__API_TOKEN: ${{ secrets.GEMINI_API_KEY }}
 
+          # =====================
           # GitHub config
+          # =====================
           VCS__PROVIDER: "GITHUB"
           VCS__PIPELINE__OWNER: "Utkarsh89890"
           VCS__PIPELINE__REPO: "ai-review-test"
