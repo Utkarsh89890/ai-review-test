@@ -31,7 +31,7 @@ jobs:
         env:
           LLM__PROVIDER: "GEMINI"
           LLM__META__MODEL: "gemini-pro"
-          LLM__HTTP_CLIENT__API_URL: "https://generativelanguage.googleapis.com"
+          LLM__HTTP_CLIENT__API_URL: "https://generativelanguage.googleapis.com/v1beta"
           LLM__HTTP_CLIENT__API_TOKEN: ${{ secrets.GEMINI_API_KEY }}
 
 
