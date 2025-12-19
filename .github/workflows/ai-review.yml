@@ -40,8 +40,8 @@ jobs:
           LLM__META__MODEL: "gemini-1.5-flash"
 
           # Gemini auth
-          LLM__GEMINI__HTTP_CLIENT__API_TOKEN: ${{ secrets.GEMINI_API_KEY }}
-          LLM__GEMINI__HTTP_CLIENT__API_URL: "https://generativelanguage.googleapis.com/v1"
+          LLM__HTTP_CLIENT__API_TOKEN: ${{ secrets.GEMINI_API_KEY }}
+          LLM__HTTP_CLIENT__API_URL: "https://generativelanguage.googleapis.com/v1"
 
           # GitHub config
           VCS__PROVIDER: "GITHUB"
