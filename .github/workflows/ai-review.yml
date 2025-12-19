@@ -29,19 +29,11 @@ jobs:
 
       - name: Run AI Review
         env:
-          # LLM CONFIG (Gemini)
           LLM__PROVIDER: "GEMINI"
-
-          # Recommended Gemini models
-          # Best quality:
-          # LLM__META__MODEL: "gemini-1.5-pro"
-
-          # Faster & cheaper alternative:
-          LLM__META__MODEL: "gemini-1.5-flash"
-
-          # Gemini auth
-          LLM__HTTP_CLIENT__API_TOKEN: ${{ secrets.GEMINI_API_KEY }}
+          LLM__META__MODEL: "gemini-pro"
           LLM__HTTP_CLIENT__API_URL: "https://generativelanguage.googleapis.com"
+          LLM__HTTP_CLIENT__API_TOKEN: ${{ secrets.GEMINI_API_KEY }}
+
 
           # GitHub config
           VCS__PROVIDER: "GITHUB"
