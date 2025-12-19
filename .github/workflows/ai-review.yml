@@ -19,8 +19,7 @@ jobs:
           python-version: "3.12"
 
       - name: Install AI review
-        run: |
-          pip install git+https://github.com/UtkarshRanjanSurya/ai-review.git
+        run: pip install --no-cache-dir xai-review==0.39.0
 
       - name: Debug key
         run: |
@@ -31,7 +30,7 @@ jobs:
       - name: Run AI Review
         env:
           LLM__PROVIDER: "GEMINI"
-          LLM__META__MODEL: "gemini-2.5-pro"
+          LLM__META__MODEL: "gemini-2.5-flash"
           LLM__HTTP_CLIENT__API_URL: "https://generativelanguage.googleapis.com"
           LLM__HTTP_CLIENT__API_TOKEN: ${{ secrets.GEMINI_API_KEY }}
 
